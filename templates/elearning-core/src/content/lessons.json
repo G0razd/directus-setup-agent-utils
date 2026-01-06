@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "status": "published",
+    "sort": 1,
+    "course_id": 1,
+    "name": "Úvod do sčítání",
+    "slug": "uvod-scitani",
+    "description": "Základy sčítání a jednoduchá cvičení",
+    "duration_minutes": 15,
+    "is_free_preview": true
+  },
+  {
+    "id": 2,
+    "status": "published",
+    "sort": 2,
+    "course_id": 1,
+    "name": "Sčítání s přechodem přes desítku",
+    "slug": "scitani-prechod-desitka",
+    "description": "Jak správně sčítat když výsledek překročí 10",
+    "duration_minutes": 20,
+    "is_free_preview": false
+  },
+  {
+    "id": 3,
+    "status": "published",
+    "sort": 3,
+    "course_id": 1,
+    "name": "Odčítání - základy",
+    "slug": "odcitani-zaklady",
+    "description": "Naučte se odčítat čísla",
+    "duration_minutes": 18,
+    "is_free_preview": false
+  },
+  {
+    "id": 4,
+    "status": "published",
+    "sort": 1,
+    "course_id": 2,
+    "name": "Násobilka 1-5",
+    "slug": "nasobilka-1-5",
+    "description": "První polovina násobilky s hrami",
+    "duration_minutes": 25,
+    "is_free_preview": true
+  },
+  {
+    "id": 5,
+    "status": "published",
+    "sort": 2,
+    "course_id": 2,
+    "name": "Násobilka 6-10",
+    "slug": "nasobilka-6-10",
+    "description": "Pokročilejší část násobilky",
+    "duration_minutes": 30,
+    "is_free_preview": false
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "status": "published",
+    "type": "text",
+    "name": "Úvodní text - co je sčítání",
+    "content": "<h2>Co je sčítání?</h2><p>Sčítání je matematická operace, která nám pomáhá spojit dvě nebo více čísel dohromady. Když sčítáme, zjišťujeme, kolik je celkem.</p><h3>Příklady ze života:</h3><ul><li>Máš 3 jablka a kamarád ti dá 2 jablka. Kolik jich máš celkem? 3 + 2 = 5</li><li>V jedné krabici je 10 bonbónů a v druhé 15. Kolik je celkem? 10 + 15 = 25</li></ul>"
+  },
+  {
+    "id": 2,
+    "status": "published",
+    "type": "video",
+    "name": "Video výuka - sčítání",
+    "video_url": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+    "video_duration": 300,
+    "config": {
+      "autoplay": false,
+      "controls": true
+    }
+  },
+  {
+    "id": 3,
+    "status": "published",
+    "type": "problem",
+    "name": "Cvičení - sčítání slovní úloha",
+    "problem_template_id": 1
+  },
+  {
+    "id": 4,
+    "status": "published",
+    "type": "text",
+    "name": "Úvodní text - násobilka",
+    "content": "<h2>Násobilka - co to je?</h2><p>Násobilka nám pomáhá rychle počítat, když máme více stejných skupin. Místo toho, abychom sčítali 3+3+3+3, můžeme rovnou říct 3×4=12.</p><h3>Tipy pro zapamatování:</h3><ul><li>Procvičuj každý den alespoň 5 minut</li><li>Začni od jedničky a postupuj pomalu</li><li>Použij obrázky a hry</li></ul>"
+  },
+  {
+    "id": 5,
+    "status": "published",
+    "type": "problem",
+    "name": "Cvičení - násobilka",
+    "problem_template_id": 4
+  },
+  {
+    "id": 6,
+    "status": "published",
+    "type": "interactive",
+    "name": "Interaktivní hra - sčítání",
+    "config": {
+      "type": "drag_drop",
+      "items": [
+        {"number": 5, "target": "basket1"},
+        {"number": 3, "target": "basket1"},
+        {"number": 2, "target": "basket2"}
+      ],
+      "question": "Přesuň čísla do košíků tak, aby jejich součet byl 8"
+    }
+  }
+]

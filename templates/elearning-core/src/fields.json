@@ -1,0 +1,1317 @@
+[
+  {
+    "collection": "course_categories",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true,
+      "is_nullable": false
+    },
+    "meta": null
+  },
+  {
+    "collection": "course_categories",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false,
+      "is_unique": true
+    },
+    "meta": {
+      "interface": "input",
+      "required": true,
+      "options": {
+        "placeholder": "Category name"
+      }
+    }
+  },
+  {
+    "collection": "course_categories",
+    "field": "slug",
+    "type": "string",
+    "schema": {
+      "is_nullable": false,
+      "is_unique": true
+    },
+    "meta": {
+      "interface": "input-slug",
+      "required": true,
+      "options": {
+        "onlyOnCreate": false
+      }
+    }
+  },
+  {
+    "collection": "course_categories",
+    "field": "description",
+    "type": "text",
+    "schema": {},
+    "meta": {
+      "interface": "input-multiline"
+    }
+  },
+  {
+    "collection": "course_categories",
+    "field": "icon",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-icon"
+    }
+  },
+  {
+    "collection": "course_categories",
+    "field": "color",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-color"
+    }
+  },
+  {
+    "collection": "course_categories",
+    "field": "sort",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "hidden": true
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true,
+      "is_nullable": false
+    },
+    "meta": null
+  },
+  {
+    "collection": "courses",
+    "field": "status",
+    "type": "string",
+    "schema": {
+      "default_value": "draft"
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Draft", "value": "draft"},
+          {"text": "Published", "value": "published"},
+          {"text": "Archived", "value": "archived"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "sort",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "hidden": true
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "user_created",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "special": ["user-created"],
+      "interface": "select-dropdown-m2o",
+      "options": {
+        "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+      },
+      "display": "user",
+      "readonly": true,
+      "hidden": true,
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "date_created",
+    "type": "timestamp",
+    "schema": {
+      "default_value": "CURRENT_TIMESTAMP"
+    },
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime",
+      "readonly": true,
+      "hidden": true,
+      "width": "half",
+      "display": "datetime",
+      "display_options": {
+        "relative": true
+      }
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "user_updated",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "special": ["user-updated"],
+      "interface": "select-dropdown-m2o",
+      "options": {
+        "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+      },
+      "display": "user",
+      "readonly": true,
+      "hidden": true,
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "date_updated",
+    "type": "timestamp",
+    "schema": {
+      "default_value": "CURRENT_TIMESTAMP"
+    },
+    "meta": {
+      "special": ["date-updated"],
+      "interface": "datetime",
+      "readonly": true,
+      "hidden": true,
+      "width": "half",
+      "display": "datetime",
+      "display_options": {
+        "relative": true
+      }
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true,
+      "options": {
+        "placeholder": "Course title"
+      },
+      "width": "full"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "slug",
+    "type": "string",
+    "schema": {
+      "is_nullable": false,
+      "is_unique": true
+    },
+    "meta": {
+      "interface": "input-slug",
+      "required": true,
+      "options": {
+        "onlyOnCreate": false
+      },
+      "width": "full"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "description",
+    "type": "text",
+    "schema": {},
+    "meta": {
+      "interface": "input-rich-text-html",
+      "options": {
+        "toolbar": ["bold", "italic", "underline", "h1", "h2", "h3", "numlist", "bullist", "link"]
+      }
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "category_id",
+    "type": "integer",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "display": "related-values",
+      "display_options": {
+        "template": "{{name}}"
+      },
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "difficulty",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Beginner", "value": "beginner"},
+          {"text": "Intermediate", "value": "intermediate"},
+          {"text": "Advanced", "value": "advanced"}
+        ]
+      },
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "thumbnail",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "interface": "file-image",
+      "special": ["file"],
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "duration_hours",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "options": {
+        "placeholder": "Estimated hours"
+      },
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "price",
+    "type": "decimal",
+    "schema": {
+      "precision": 10,
+      "scale": 2,
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "options": {
+        "placeholder": "0.00"
+      },
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "is_premium",
+    "type": "boolean",
+    "schema": {
+      "default_value": false
+    },
+    "meta": {
+      "interface": "boolean",
+      "width": "half"
+    }
+  },
+  {
+    "collection": "courses",
+    "field": "is_published",
+    "type": "boolean",
+    "schema": {
+      "default_value": false
+    },
+    "meta": {
+      "interface": "boolean",
+      "width": "half"
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true,
+      "is_nullable": false
+    },
+    "meta": null
+  },
+  {
+    "collection": "lessons",
+    "field": "status",
+    "type": "string",
+    "schema": {
+      "default_value": "draft"
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Draft", "value": "draft"},
+          {"text": "Published", "value": "published"},
+          {"text": "Archived", "value": "archived"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "sort",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "user_created",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "special": ["user-created"],
+      "interface": "select-dropdown-m2o",
+      "readonly": true,
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "date_created",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime",
+      "readonly": true,
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "user_updated",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "special": ["user-updated"],
+      "interface": "select-dropdown-m2o",
+      "readonly": true,
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "date_updated",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-updated"],
+      "interface": "datetime",
+      "readonly": true,
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "course_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "courses",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true,
+      "display": "related-values",
+      "display_options": {
+        "template": "{{name}}"
+      }
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true,
+      "options": {
+        "placeholder": "Lesson title"
+      }
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "slug",
+    "type": "string",
+    "schema": {
+      "is_unique": true
+    },
+    "meta": {
+      "interface": "input-slug",
+      "options": {
+        "onlyOnCreate": false
+      }
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "description",
+    "type": "text",
+    "schema": {},
+    "meta": {
+      "interface": "input-multiline"
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "duration_minutes",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "width": "half"
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "is_free_preview",
+    "type": "boolean",
+    "schema": {
+      "default_value": false
+    },
+    "meta": {
+      "interface": "boolean",
+      "width": "half"
+    }
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "lesson_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "lessons",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "hidden": true
+    }
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "block_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "blocks",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o"
+    }
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "sort",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "blocks",
+    "field": "status",
+    "type": "string",
+    "schema": {
+      "default_value": "draft"
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Draft", "value": "draft"},
+          {"text": "Published", "value": "published"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "type",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "required": true,
+      "options": {
+        "choices": [
+          {"text": "Video", "value": "video"},
+          {"text": "Text/HTML", "value": "text"},
+          {"text": "Problem", "value": "problem"},
+          {"text": "Interactive", "value": "interactive"},
+          {"text": "Quiz", "value": "quiz"},
+          {"text": "Code Exercise", "value": "code"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "content",
+    "type": "text",
+    "schema": {},
+    "meta": {
+      "interface": "input-rich-text-html",
+      "note": "For text blocks: HTML content"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "video_url",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "input",
+      "note": "For video blocks: HLS stream URL",
+      "options": {
+        "placeholder": "https://..."
+      }
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "video_file_id",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "interface": "file",
+      "special": ["file"],
+      "note": "For video blocks: Directus file ID"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "video_duration",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "note": "Video duration in seconds"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "problem_template_id",
+    "type": "integer",
+    "schema": {
+      "foreign_key_table": "problem_templates",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "note": "For problem blocks: reference to template"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "config",
+    "type": "json",
+    "schema": {},
+    "meta": {
+      "interface": "input-code",
+      "options": {
+        "language": "json"
+      },
+      "note": "Block-specific configuration (JSON)"
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "problem_templates",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "type",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "required": true,
+      "options": {
+        "choices": [
+          {"text": "Multiple Choice", "value": "multiple_choice"},
+          {"text": "Exact Answer (Number)", "value": "exact_answer"},
+          {"text": "Word Problem (Template)", "value": "word_problem"},
+          {"text": "True/False", "value": "true_false"},
+          {"text": "Fill in the Blank", "value": "fill_blank"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "question_template",
+    "type": "text",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input-multiline",
+      "required": true,
+      "note": "Use {x}, {y}, {z} for variables. Example: 'Anička má o {x} více než Petr. Petr má {y}. Kolik má Anička?'"
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "answer_formula",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true,
+      "note": "JavaScript expression. Example: 'y + x' or 'x * 2 + y'"
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "variable_ranges",
+    "type": "json",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input-code",
+      "required": true,
+      "options": {
+        "language": "json"
+      },
+      "note": "Define ranges: {\"x\": {\"min\": 1, \"max\": 10}, \"y\": {\"min\": 5, \"max\": 20}}"
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "options_template",
+    "type": "json",
+    "schema": {},
+    "meta": {
+      "interface": "input-code",
+      "options": {
+        "language": "json"
+      },
+      "note": "For multiple choice: define how to generate wrong answers"
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "difficulty",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Easy", "value": "easy"},
+          {"text": "Medium", "value": "medium"},
+          {"text": "Hard", "value": "hard"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "problem_templates",
+    "field": "hints",
+    "type": "json",
+    "schema": {},
+    "meta": {
+      "interface": "list",
+      "note": "Array of hint strings"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "problem_instances",
+    "field": "template_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "problem_templates",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "generated_question",
+    "type": "text",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input-multiline",
+      "readonly": true,
+      "note": "Question with substituted values"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "variables",
+    "type": "json",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input-code",
+      "readonly": true,
+      "options": {
+        "language": "json"
+      },
+      "note": "Actual variable values used: {\"x\": 5, \"y\": 10}"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "correct_answer",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "readonly": true,
+      "note": "Computed answer"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "options",
+    "type": "json",
+    "schema": {},
+    "meta": {
+      "interface": "list",
+      "readonly": true,
+      "note": "For multiple choice: generated options"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "user_id",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "special": ["user-created"],
+      "note": "User this problem was generated for"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "date_created",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime",
+      "readonly": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "problem_instance_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "problem_instances",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "user_id",
+    "type": "uuid",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "special": ["user-created"],
+      "required": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "answer",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "is_correct",
+    "type": "boolean",
+    "schema": {},
+    "meta": {
+      "interface": "boolean",
+      "readonly": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "attempt_number",
+    "type": "integer",
+    "schema": {
+      "default_value": 1
+    },
+    "meta": {
+      "interface": "input",
+      "readonly": true
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "time_taken_seconds",
+    "type": "integer",
+    "schema": {},
+    "meta": {
+      "interface": "input"
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "hints_used",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input"
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "date_created",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime",
+      "readonly": true
+    }
+  },
+  {
+    "collection": "user_groups",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "user_groups",
+    "field": "name",
+    "type": "string",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "input",
+      "required": true
+    }
+  },
+  {
+    "collection": "user_groups",
+    "field": "description",
+    "type": "text",
+    "schema": {},
+    "meta": {
+      "interface": "input-multiline"
+    }
+  },
+  {
+    "collection": "user_groups",
+    "field": "type",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Class", "value": "class"},
+          {"text": "Cohort", "value": "cohort"},
+          {"text": "Study Group", "value": "study_group"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "user_groups",
+    "field": "teacher_id",
+    "type": "uuid",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "note": "Primary teacher/instructor"
+    }
+  },
+  {
+    "collection": "user_groups",
+    "field": "date_created",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime",
+      "readonly": true
+    }
+  },
+  {
+    "collection": "group_members",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "group_members",
+    "field": "group_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "user_groups",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "group_members",
+    "field": "user_id",
+    "type": "uuid",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "group_members",
+    "field": "role",
+    "type": "string",
+    "schema": {},
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Member", "value": "member"},
+          {"text": "Leader", "value": "leader"},
+          {"text": "Assistant", "value": "assistant"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "group_members",
+    "field": "date_joined",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime"
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "course_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "courses",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "user_id",
+    "type": "uuid",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "status",
+    "type": "string",
+    "schema": {
+      "default_value": "active"
+    },
+    "meta": {
+      "interface": "select-dropdown",
+      "options": {
+        "choices": [
+          {"text": "Active", "value": "active"},
+          {"text": "Completed", "value": "completed"},
+          {"text": "Paused", "value": "paused"},
+          {"text": "Cancelled", "value": "cancelled"}
+        ]
+      }
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "progress_percentage",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "slider",
+      "options": {
+        "min": 0,
+        "max": 100
+      }
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "date_enrolled",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "special": ["date-created"],
+      "interface": "datetime"
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "date_completed",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "interface": "datetime"
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "id",
+    "type": "integer",
+    "schema": {
+      "is_primary_key": true,
+      "has_auto_increment": true
+    },
+    "meta": null
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "lesson_id",
+    "type": "integer",
+    "schema": {
+      "is_nullable": false,
+      "foreign_key_table": "lessons",
+      "foreign_key_column": "id"
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "user_id",
+    "type": "uuid",
+    "schema": {
+      "is_nullable": false
+    },
+    "meta": {
+      "interface": "select-dropdown-m2o",
+      "required": true
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "watched_duration",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "input",
+      "note": "Seconds watched"
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "watch_percentage",
+    "type": "integer",
+    "schema": {
+      "default_value": 0
+    },
+    "meta": {
+      "interface": "slider",
+      "options": {
+        "min": 0,
+        "max": 100
+      }
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "is_completed",
+    "type": "boolean",
+    "schema": {
+      "default_value": false
+    },
+    "meta": {
+      "interface": "boolean"
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "last_viewed_at",
+    "type": "timestamp",
+    "schema": {},
+    "meta": {
+      "interface": "datetime"
+    }
+  }
+]

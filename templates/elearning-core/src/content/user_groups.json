@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Třída 3.A",
+    "description": "Matematika pro třetí třídu - skupina A",
+    "type": "class"
+  },
+  {
+    "id": 2,
+    "name": "Kroužek programování",
+    "description": "Odpolední kroužek programování pro začátečníky",
+    "type": "study_group"
+  }
+]

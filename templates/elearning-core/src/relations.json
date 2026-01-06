@@ -1,0 +1,165 @@
+[
+  {
+    "collection": "courses",
+    "field": "category_id",
+    "related_collection": "course_categories",
+    "meta": {
+      "many_collection": "courses",
+      "many_field": "category_id",
+      "one_collection": "course_categories",
+      "one_field": null,
+      "one_collection_field": null,
+      "one_allowed_collections": null,
+      "junction_field": null,
+      "sort_field": null,
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "SET NULL"
+    }
+  },
+  {
+    "collection": "lessons",
+    "field": "course_id",
+    "related_collection": "courses",
+    "meta": {
+      "many_collection": "lessons",
+      "many_field": "course_id",
+      "one_collection": "courses",
+      "one_field": null,
+      "one_collection_field": null,
+      "one_allowed_collections": null,
+      "junction_field": null,
+      "sort_field": "sort",
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "lesson_id",
+    "related_collection": "lessons",
+    "meta": {
+      "many_collection": "lesson_blocks",
+      "many_field": "lesson_id",
+      "one_collection": "lessons",
+      "one_field": null,
+      "junction_field": "block_id",
+      "sort_field": "sort",
+      "one_deselect_action": "delete"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "lesson_blocks",
+    "field": "block_id",
+    "related_collection": "blocks",
+    "meta": {
+      "many_collection": "lesson_blocks",
+      "many_field": "block_id",
+      "one_collection": "blocks",
+      "one_field": null,
+      "junction_field": "lesson_id",
+      "sort_field": null,
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "blocks",
+    "field": "problem_template_id",
+    "related_collection": "problem_templates",
+    "meta": {
+      "many_collection": "blocks",
+      "many_field": "problem_template_id",
+      "one_collection": "problem_templates",
+      "one_field": null,
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "SET NULL"
+    }
+  },
+  {
+    "collection": "problem_instances",
+    "field": "template_id",
+    "related_collection": "problem_templates",
+    "meta": {
+      "many_collection": "problem_instances",
+      "many_field": "template_id",
+      "one_collection": "problem_templates",
+      "one_field": null,
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "problem_attempts",
+    "field": "problem_instance_id",
+    "related_collection": "problem_instances",
+    "meta": {
+      "many_collection": "problem_attempts",
+      "many_field": "problem_instance_id",
+      "one_collection": "problem_instances",
+      "one_field": null,
+      "one_deselect_action": "nullify"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "group_members",
+    "field": "group_id",
+    "related_collection": "user_groups",
+    "meta": {
+      "many_collection": "group_members",
+      "many_field": "group_id",
+      "one_collection": "user_groups",
+      "one_field": null,
+      "junction_field": "user_id",
+      "one_deselect_action": "delete"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "course_enrollments",
+    "field": "course_id",
+    "related_collection": "courses",
+    "meta": {
+      "many_collection": "course_enrollments",
+      "many_field": "course_id",
+      "one_collection": "courses",
+      "one_field": null,
+      "one_deselect_action": "delete"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  },
+  {
+    "collection": "lesson_progress",
+    "field": "lesson_id",
+    "related_collection": "lessons",
+    "meta": {
+      "many_collection": "lesson_progress",
+      "many_field": "lesson_id",
+      "one_collection": "lessons",
+      "one_field": null,
+      "one_deselect_action": "delete"
+    },
+    "schema": {
+      "on_delete": "CASCADE"
+    }
+  }
+]

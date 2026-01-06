@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "status": "published",
+    "sort": 1,
+    "name": "Sčítání a odčítání do 100",
+    "slug": "scitani-odcitani-100",
+    "description": "<h2>Naučte se sčítat a odčítat čísla do 100</h2><p>Tento kurz vás provede základy sčítání a odčítání. Naučíte se pracovat s čísly, používat metody a řešit slovní úlohy.</p>",
+    "category_id": 1,
+    "difficulty": "beginner",
+    "duration_hours": 10,
+    "price": 0,
+    "is_premium": false,
+    "is_published": true
+  },
+  {
+    "id": 2,
+    "status": "published",
+    "sort": 2,
+    "name": "Násobilka 1-10",
+    "slug": "nasobilka-1-10",
+    "description": "<h2>Ovládněte násobilku od 1 do 10</h2><p>Interaktivní kurz s hrami a cvičeními pro snadné zapamatování násobilky.</p>",
+    "category_id": 1,
+    "difficulty": "beginner",
+    "duration_hours": 8,
+    "price": 0,
+    "is_premium": false,
+    "is_published": true
+  },
+  {
+    "id": 3,
+    "status": "published",
+    "sort": 3,
+    "name": "Zlomky a desetinná čísla",
+    "slug": "zlomky-desetinna-cisla",
+    "description": "<h2>Práce se zlomky a desetinnými čísly</h2><p>Pochopte koncept zlomků a naučte se převádět mezi zlomky a desetinnými čísly.</p>",
+    "category_id": 1,
+    "difficulty": "intermediate",
+    "duration_hours": 15,
+    "price": 299,
+    "is_premium": true,
+    "is_published": true
+  },
+  {
+    "id": 4,
+    "status": "published",
+    "sort": 4,
+    "name": "Programování v Pythonu pro začátečníky",
+    "slug": "python-zacatecnici",
+    "description": "<h2>Naučte se programovat v Pythonu</h2><p>Od základů po první programy. Žádné předchozí zkušenosti nejsou potřeba.</p>",
+    "category_id": 4,
+    "difficulty": "beginner",
+    "duration_hours": 20,
+    "price": 499,
+    "is_premium": true,
+    "is_published": true
+  }
+]

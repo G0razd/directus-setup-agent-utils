@@ -1,0 +1,126 @@
+[
+  {
+    "collection": "course_categories",
+    "meta": {
+      "icon": "category",
+      "color": "#9B5DE5",
+      "note": "Course categories for organization",
+      "sort": 1
+    },
+    "schema": {}
+  },
+  {
+    "collection": "courses",
+    "meta": {
+      "icon": "school",
+      "color": "#FF006E",
+      "note": "Top-level courses",
+      "sort": 2,
+      "sort_field": "sort"
+    },
+    "schema": {}
+  },
+  {
+    "collection": "lessons",
+    "meta": {
+      "icon": "class",
+      "color": "#00BBF9",
+      "note": "Individual lessons within courses",
+      "sort": 3,
+      "sort_field": "sort"
+    },
+    "schema": {}
+  },
+  {
+    "collection": "lesson_blocks",
+    "meta": {
+      "icon": "view_module",
+      "color": "#F15BB5",
+      "note": "Block-based content for lessons",
+      "sort": 4,
+      "sort_field": "sort"
+    },
+    "schema": {}
+  },
+  {
+    "collection": "blocks",
+    "meta": {
+      "icon": "widgets",
+      "color": "#FEE440",
+      "note": "Reusable content blocks",
+      "sort": 5
+    },
+    "schema": {}
+  },
+  {
+    "collection": "problem_templates",
+    "meta": {
+      "icon": "help_outline",
+      "color": "#00F5FF",
+      "note": "Problem templates with variable placeholders",
+      "sort": 6
+    },
+    "schema": {}
+  },
+  {
+    "collection": "problem_instances",
+    "meta": {
+      "icon": "quiz",
+      "color": "#9B59B6",
+      "note": "Generated problem instances from templates",
+      "sort": 7
+    },
+    "schema": {}
+  },
+  {
+    "collection": "problem_attempts",
+    "meta": {
+      "icon": "rate_review",
+      "color": "#E74C3C",
+      "note": "Student problem attempts and answers",
+      "sort": 8
+    },
+    "schema": {}
+  },
+  {
+    "collection": "user_groups",
+    "meta": {
+      "icon": "group",
+      "color": "#3498DB",
+      "note": "Classes, cohorts, or study groups",
+      "sort": 9
+    },
+    "schema": {}
+  },
+  {
+    "collection": "group_members",
+    "meta": {
+      "icon": "people",
+      "color": "#1ABC9C",
+      "note": "Junction table for users in groups",
+      "sort": 10,
+      "hidden": true
+    },
+    "schema": {}
+  },
+  {
+    "collection": "course_enrollments",
+    "meta": {
+      "icon": "person_add",
+      "color": "#E67E22",
+      "note": "User course enrollments",
+      "sort": 11
+    },
+    "schema": {}
+  },
+  {
+    "collection": "lesson_progress",
+    "meta": {
+      "icon": "trending_up",
+      "color": "#27AE60",
+      "note": "Track lesson completion and watch time",
+      "sort": 12
+    },
+    "schema": {}
+  }
+]

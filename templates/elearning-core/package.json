@@ -1,0 +1,31 @@
+{
+  "name": "@abakus/directus-template-elearning-core",
+  "version": "1.0.0",
+  "description": "Complete e-learning platform schema with block-based lesson builder and problem templating",
+  "directus:template": {
+    "name": "E-Learning Core",
+    "description": "Full-featured e-learning platform with courses, block-based lessons, problem templates, user groups, and categories. Supports Czech language word problems with variable substitution.",
+    "template": "./src",
+    "dependencies": [],
+    "features": [
+      "Block-based lesson builder",
+      "Problem templating with variables",
+      "Dynamic number ranges",
+      "Course categories",
+      "User groups/classes",
+      "Sort ordering on all collections",
+      "Video, text, and interactive blocks"
+    ]
+  },
+  "keywords": [
+    "directus",
+    "e-learning",
+    "education",
+    "lms",
+    "courses",
+    "lessons",
+    "problems"
+  ],
+  "author": "Abakus Akademie",
+  "license": "MIT"
+}

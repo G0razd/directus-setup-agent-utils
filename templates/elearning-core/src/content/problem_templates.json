@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Sčítání - slovní úloha",
+    "type": "word_problem",
+    "question_template": "Anička má {x} jablek. Petr jí dal ještě {y} jablek. Kolik jablek má Anička celkem?",
+    "answer_formula": "x + y",
+    "variable_ranges": {
+      "x": {"min": 1, "max": 50},
+      "y": {"min": 1, "max": 50}
+    },
+    "difficulty": "easy",
+    "hints": [
+      "Když něco dostaneš, sčítáš.",
+      "Kolik měla na začátku? Kolik dostala?"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Odčítání - slovní úloha",
+    "type": "word_problem",
+    "question_template": "V košíku bylo {x} jablek. Děti snědly {y} jablek. Kolik jablek zbylo v košíku?",
+    "answer_formula": "x - y",
+    "variable_ranges": {
+      "x": {"min": 10, "max": 100},
+      "y": {"min": 1, "max": 50}
+    },
+    "difficulty": "easy",
+    "hints": [
+      "Když něco ubylo, odčítáš.",
+      "Kolik bylo na začátku? Kolik ubylo?"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sčítání a odčítání kombinované",
+    "type": "word_problem",
+    "question_template": "Petr měl {x} korun. Dostal od babičky {y} korun a koupil si zmrzlinu za {z} korun. Kolik korun mu zbylo?",
+    "answer_formula": "x + y - z",
+    "variable_ranges": {
+      "x": {"min": 20, "max": 100},
+      "y": {"min": 10, "max": 50},
+      "z": {"min": 15, "max": 40}
+    },
+    "difficulty": "medium",
+    "hints": [
+      "Nejdříve spočítej, kolik měl po dárku od babičky.",
+      "Pak odečti cenu zmrzliny."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Násobení - základní úloha",
+    "type": "word_problem",
+    "question_template": "V každé krabici je {x} bonbónů. Máme {y} krabic. Kolik bonbónů máme celkem?",
+    "answer_formula": "x * y",
+    "variable_ranges": {
+      "x": {"min": 2, "max": 10},
+      "y": {"min": 2, "max": 10}
+    },
+    "difficulty": "medium",
+    "hints": [
+      "Když máš více stejných skupin, násobíš.",
+      "Kolik je v jedné krabici? Kolik máš krabic?"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dělení - základní úloha",
+    "type": "word_problem",
+    "question_template": "Máme {x} jablek a chceme je rozdělit rovnoměrně mezi {y} dětí. Kolik jablek dostane každé dítě?",
+    "answer_formula": "x / y",
+    "variable_ranges": {
+      "x": {"min": 10, "max": 100},
+      "y": {"min": 2, "max": 10}
+    },
+    "difficulty": "medium",
+    "hints": [
+      "Když rozdělujeme rovnoměrně, dělíme.",
+      "Kolik jablek máš? Mezi kolik dětí je rozdělíš?"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Složitější úloha s více operacemi",
+    "type": "word_problem",
+    "question_template": "V obchodě stojí jablko {x} Kč a hruška {y} Kč. Petr si koupil {z} jablek a 2 hrušky. Kolik zaplatil?",
+    "answer_formula": "x * z + y * 2",
+    "variable_ranges": {
+      "x": {"min": 5, "max": 15},
+      "y": {"min": 8, "max": 20},
+      "z": {"min": 2, "max": 5}
+    },
+    "difficulty": "hard",
+    "hints": [
+      "Spočítej nejdříve cenu jablek.",
+      "Pak cenu hrušek.",
+      "Nakonec vše sečti."
+    ]
+  }
+]

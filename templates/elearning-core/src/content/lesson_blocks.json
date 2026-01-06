@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "lesson_id": 1,
+    "block_id": 1,
+    "sort": 1
+  },
+  {
+    "id": 2,
+    "lesson_id": 1,
+    "block_id": 2,
+    "sort": 2
+  },
+  {
+    "id": 3,
+    "lesson_id": 1,
+    "block_id": 3,
+    "sort": 3
+  },
+  {
+    "id": 4,
+    "lesson_id": 1,
+    "block_id": 6,
+    "sort": 4
+  },
+  {
+    "id": 5,
+    "lesson_id": 4,
+    "block_id": 4,
+    "sort": 1
+  },
+  {
+    "id": 6,
+    "lesson_id": 4,
+    "block_id": 5,
+    "sort": 2
+  }
+]

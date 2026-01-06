@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Matematika",
+    "slug": "matematika",
+    "description": "Výuka matematiky od základů po pokročilé koncepty",
+    "icon": "calculate",
+    "color": "#FF006E",
+    "sort": 1
+  },
+  {
+    "id": 2,
+    "name": "Čeština",
+    "slug": "cestina",
+    "description": "Čtení, psaní a gramatika českého jazyka",
+    "icon": "menu_book",
+    "color": "#00BBF9",
+    "sort": 2
+  },
+  {
+    "id": 3,
+    "name": "Přírodověda",
+    "slug": "prirodoveda",
+    "description": "Fyzika, chemie a biologie",
+    "icon": "science",
+    "color": "#00F5FF",
+    "sort": 3
+  },
+  {
+    "id": 4,
+    "name": "Programování",
+    "slug": "programovani",
+    "description": "Základy programování a algoritmů",
+    "icon": "code",
+    "color": "#9B5DE5",
+    "sort": 4
+  }
+]
