@@ -1,0 +1,27 @@
+{
+  "name": "@abakus/directus-setup",
+  "version": "1.0.0",
+  "description": "Directus collection setup and data population scripts",
+  "type": "module",
+  "scripts": {
+    "setup": "node src/main.js",
+    "setup:collections": "node src/create-collections.js",
+    "setup:data": "node src/populate-data.js",
+    "verify": "node src/verify-setup.js",
+    "backup": "node src/backup-collections.js",
+    "clean": "node src/clean-collections.js",
+    "examples": "node src/examples.js",
+    "test": "node tests/run-all.js",
+    "test:logger": "node tests/logger.test.js",
+    "test:auth": "node tests/auth.test.js",
+    "test:client": "node tests/client.test.js",
+    "test:integration": "node tests/integration.test.js"
+  },
+  "dependencies": {
+    "@directus/sdk": "^18.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

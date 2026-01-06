@@ -1,0 +1,389 @@
+{
+  "$schema": "https://docs.directus.io/reference/schema",
+  "collections": [
+    {
+      "collection": "courses",
+      "meta": {
+        "icon": "books",
+        "color": "#9B5DE5",
+        "note": "Online courses and educational programs"
+      },
+      "fields": [
+        {
+          "field": "id",
+          "type": "integer",
+          "schema": {
+            "is_primary_key": true,
+            "is_nullable": false,
+            "is_unique": true
+          }
+        },
+        {
+          "field": "name",
+          "type": "string",
+          "schema": { "is_nullable": false },
+          "meta": { "interface": "input", "options": { "placeholder": "Course title" } }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "schema": { "is_nullable": false, "is_unique": true },
+          "meta": { "interface": "input-slug" }
+        },
+        {
+          "field": "description",
+          "type": "text",
+          "meta": { "interface": "input-rich-text-html" }
+        },
+        {
+          "field": "category",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Algebra", "value": "algebra" },
+                { "text": "Geometry", "value": "geometry" },
+                { "text": "Arithmetic", "value": "arithmetic" },
+                { "text": "Word Problems", "value": "word-problems" }
+              ]
+            }
+          }
+        },
+        {
+          "field": "difficulty",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Beginner", "value": "beginner" },
+                { "text": "Intermediate", "value": "intermediate" },
+                { "text": "Advanced", "value": "advanced" }
+              ]
+            }
+          }
+        },
+        {
+          "field": "xp_reward",
+          "type": "integer",
+          "schema": { "default_value": 100 }
+        },
+        {
+          "field": "price",
+          "type": "decimal",
+          "schema": { "precision": 10, "scale": 2 }
+        },
+        {
+          "field": "is_premium",
+          "type": "boolean",
+          "schema": { "default_value": false }
+        },
+        {
+          "field": "thumbnail_url",
+          "type": "string",
+          "meta": { "interface": "input-image-url" }
+        },
+        {
+          "field": "is_published",
+          "type": "boolean",
+          "schema": { "default_value": false },
+          "meta": { "interface": "boolean" }
+        },
+        {
+          "field": "order",
+          "type": "integer",
+          "schema": { "default_value": 0 }
+        },
+        {
+          "field": "date_created",
+          "type": "timestamp",
+          "schema": { "default_value": "now()" },
+          "meta": { "readonly": true }
+        },
+        {
+          "field": "date_updated",
+          "type": "timestamp",
+          "schema": { "default_value": "now()", "on_update": "now()" },
+          "meta": { "readonly": true }
+        }
+      ]
+    },
+    {
+      "collection": "lessons",
+      "meta": {
+        "icon": "class",
+        "color": "#FF006E",
+        "note": "Individual lessons within courses"
+      },
+      "fields": [
+        {
+          "field": "id",
+          "type": "integer",
+          "schema": {
+            "is_primary_key": true,
+            "is_nullable": false,
+            "is_unique": true
+          }
+        },
+        {
+          "field": "course_id",
+          "type": "integer",
+          "schema": { "is_nullable": false },
+          "meta": {
+            "interface": "select-dropdown-m2o",
+            "options": {
+              "template": "{{ name }}"
+            }
+          }
+        },
+        {
+          "field": "name",
+          "type": "string",
+          "schema": { "is_nullable": false },
+          "meta": { "interface": "input" }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "meta": { "interface": "input-slug" }
+        },
+        {
+          "field": "content",
+          "type": "text",
+          "meta": { "interface": "input-rich-text-html" }
+        },
+        {
+          "field": "video_url",
+          "type": "string",
+          "meta": { "interface": "input-url" }
+        },
+        {
+          "field": "video_file_id",
+          "type": "string"
+        },
+        {
+          "field": "video_duration",
+          "type": "integer",
+          "schema": { "default_value": 0 }
+        },
+        {
+          "field": "xp_reward",
+          "type": "integer",
+          "schema": { "default_value": 50 }
+        },
+        {
+          "field": "order",
+          "type": "integer",
+          "schema": { "default_value": 0 }
+        },
+        {
+          "field": "is_published",
+          "type": "boolean",
+          "schema": { "default_value": false }
+        },
+        {
+          "field": "is_free_preview",
+          "type": "boolean",
+          "schema": { "default_value": false }
+        },
+        {
+          "field": "blocks",
+          "type": "json",
+          "meta": {
+            "interface": "input",
+            "note": "Block-based content structure for flexibility"
+          }
+        },
+        {
+          "field": "date_created",
+          "type": "timestamp",
+          "schema": { "default_value": "now()" },
+          "meta": { "readonly": true }
+        },
+        {
+          "field": "date_updated",
+          "type": "timestamp",
+          "schema": { "default_value": "now()", "on_update": "now()" },
+          "meta": { "readonly": true }
+        }
+      ]
+    },
+    {
+      "collection": "problems",
+      "meta": {
+        "icon": "help",
+        "color": "#00BBF9",
+        "note": "Problem sets for lessons"
+      },
+      "fields": [
+        {
+          "field": "id",
+          "type": "integer",
+          "schema": {
+            "is_primary_key": true,
+            "is_nullable": false,
+            "is_unique": true
+          }
+        },
+        {
+          "field": "lesson_id",
+          "type": "integer",
+          "schema": { "is_nullable": false },
+          "meta": {
+            "interface": "select-dropdown-m2o",
+            "options": { "template": "{{ name }}" }
+          }
+        },
+        {
+          "field": "type",
+          "type": "string",
+          "schema": { "is_nullable": false },
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Multiple Choice", "value": "multiple_choice" },
+                { "text": "Exact Answer", "value": "exact_answer" },
+                { "text": "True/False", "value": "true_false" }
+              ]
+            }
+          }
+        },
+        {
+          "field": "question",
+          "type": "text",
+          "schema": { "is_nullable": false }
+        },
+        {
+          "field": "options",
+          "type": "json",
+          "meta": { "note": "For multiple choice: array of options" }
+        },
+        {
+          "field": "correct_answer",
+          "type": "string",
+          "schema": { "is_nullable": false }
+        },
+        {
+          "field": "explanation",
+          "type": "text"
+        },
+        {
+          "field": "difficulty",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Easy", "value": "easy" },
+                { "text": "Medium", "value": "medium" },
+                { "text": "Hard", "value": "hard" }
+              ]
+            }
+          }
+        },
+        {
+          "field": "xp_reward",
+          "type": "integer",
+          "schema": { "default_value": 25 }
+        },
+        {
+          "field": "order",
+          "type": "integer",
+          "schema": { "default_value": 0 }
+        },
+        {
+          "field": "date_created",
+          "type": "timestamp",
+          "schema": { "default_value": "now()" },
+          "meta": { "readonly": true }
+        },
+        {
+          "field": "date_updated",
+          "type": "timestamp",
+          "schema": { "default_value": "now()", "on_update": "now()" },
+          "meta": { "readonly": true }
+        }
+      ]
+    },
+    {
+      "collection": "ai_prompts",
+      "meta": {
+        "icon": "smart_toy",
+        "color": "#FFBE0B",
+        "note": "AI system prompts for lesson generation"
+      },
+      "fields": [
+        {
+          "field": "id",
+          "type": "integer",
+          "schema": {
+            "is_primary_key": true,
+            "is_nullable": false,
+            "is_unique": true
+          }
+        },
+        {
+          "field": "name",
+          "type": "string",
+          "schema": { "is_nullable": false },
+          "meta": { "interface": "input" }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "schema": { "is_nullable": false, "is_unique": true },
+          "meta": { "interface": "input-slug" }
+        },
+        {
+          "field": "system_prompt",
+          "type": "text",
+          "schema": { "is_nullable": false },
+          "meta": {
+            "interface": "input-rich-text-html",
+            "note": "System prompt for AI model"
+          }
+        },
+        {
+          "field": "context",
+          "type": "text",
+          "meta": { "interface": "input-rich-text-html" }
+        },
+        {
+          "field": "category",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Lesson Generation", "value": "lesson_generation" },
+                { "text": "Problem Creation", "value": "problem_creation" },
+                { "text": "Student Assistance", "value": "student_assistance" },
+                { "text": "Grading", "value": "grading" },
+                { "text": "Content Review", "value": "content_review" }
+              ]
+            }
+          }
+        },
+        {
+          "field": "is_active",
+          "type": "boolean",
+          "schema": { "default_value": true }
+        },
+        {
+          "field": "date_created",
+          "type": "timestamp",
+          "schema": { "default_value": "now()" },
+          "meta": { "readonly": true }
+        },
+        {
+          "field": "date_updated",
+          "type": "timestamp",
+          "schema": { "default_value": "now()", "on_update": "now()" },
+          "meta": { "readonly": true }
+        }
+      ]
+    }
+  ]
+}
