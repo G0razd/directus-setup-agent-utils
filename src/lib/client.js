@@ -3,8 +3,8 @@
  * Wraps fetch requests with authentication and error handling
  */
 
-import { DirectusAuth } from './auth.js';
-import { logger } from './logger.js';
+import { DirectusAuth } from "./auth.js";
+import { logger } from "./logger.js";
 
 export class DirectusClient {
   constructor(directusUrl, accessToken) {
@@ -34,15 +34,17 @@ export class DirectusClient {
       // Handle 403 Forbidden
       if (response.status === 403) {
         logger.error(
-          '❌ 403 Forbidden: Check token permissions. Ensure token has access to collections/items.'
+          "❌ 403 Forbidden: Check token permissions. Ensure token has access to collections/items."
         );
-        throw new Error('Insufficient permissions');
+        throw new Error("Insufficient permissions");
       }
 
       // Handle 401 Unauthorized
       if (response.status === 401) {
-        logger.error('❌ 401 Unauthorized: Token is invalid or expired. Generate new token.');
-        throw new Error('Invalid token');
+        logger.error(
+          "❌ 401 Unauthorized: Token is invalid or expired. Generate new token."
+        );
+        throw new Error("Invalid token");
       }
 
       if (!response.ok) {
@@ -62,8 +64,8 @@ export class DirectusClient {
    * GET /api/collections
    */
   async getCollections() {
-    logger.debug('Fetching collections...');
-    const result = await this.request('GET', '/api/collections');
+    logger.debug("Fetching collections...");
+    const result = await this.request("GET", "/api/collections");
     return result.data || [];
   }
 
@@ -72,7 +74,11 @@ export class DirectusClient {
    */
   async createCollection(collectionConfig) {
     logger.debug(`Creating collection: ${collectionConfig.collection}`);
-    const result = await this.request('POST', '/api/collections', collectionConfig);
+    const result = await this.request(
+      "POST",
+      "/api/collections",
+      collectionConfig
+    );
     return result.data;
   }
 
@@ -81,7 +87,11 @@ export class DirectusClient {
    */
   async updateCollection(collectionId, updates) {
     logger.debug(`Updating collection: ${collectionId}`);
-    const result = await this.request('PATCH', `/api/collections/${collectionId}`, updates);
+    const result = await this.request(
+      "PATCH",
+      `/api/collections/${collectionId}`,
+      updates
+    );
     return result.data;
   }
 
@@ -97,7 +107,7 @@ export class DirectusClient {
       url += `?${params.toString()}`;
     }
 
-    const result = await this.request('GET', url);
+    const result = await this.request("GET", url);
     return result.data || [];
   }
 
@@ -106,7 +116,7 @@ export class DirectusClient {
    */
   async createItem(collection, data) {
     logger.debug(`Creating item in ${collection}`);
-    const result = await this.request('POST', `/api/items/${collection}`, data);
+    const result = await this.request("POST", `/api/items/${collection}`, data);
     return result.data;
   }
 
@@ -115,7 +125,11 @@ export class DirectusClient {
    */
   async createItems(collection, items) {
     logger.debug(`Creating ${items.length} items in ${collection}`);
-    const result = await this.request('POST', `/api/items/${collection}`, items);
+    const result = await this.request(
+      "POST",
+      `/api/items/${collection}`,
+      items
+    );
     return result.data || [];
   }
 
@@ -124,7 +138,11 @@ export class DirectusClient {
    */
   async updateItem(collection, id, data) {
     logger.debug(`Updating item ${id} in ${collection}`);
-    const result = await this.request('PATCH', `/api/items/${collection}/${id}`, data);
+    const result = await this.request(
+      "PATCH",
+      `/api/items/${collection}/${id}`,
+      data
+    );
     return result.data;
   }
 
@@ -133,7 +151,7 @@ export class DirectusClient {
    */
   async deleteItem(collection, id) {
     logger.debug(`Deleting item ${id} from ${collection}`);
-    await this.request('DELETE', `/api/items/${collection}/${id}`);
+    await this.request("DELETE", `/api/items/${collection}/${id}`);
   }
 
   /**
@@ -141,7 +159,7 @@ export class DirectusClient {
    */
   async getFields(collection) {
     logger.debug(`Fetching fields for ${collection}...`);
-    const result = await this.request('GET', `/api/fields/${collection}`);
+    const result = await this.request("GET", `/api/fields/${collection}`);
     return result.data || [];
   }
 
@@ -150,9 +168,11 @@ export class DirectusClient {
    */
   async testConnection() {
     try {
-      logger.info('🔗 Testing Directus connection...');
-      const result = await this.request('GET', '/api/server/info');
-      logger.success(`✅ Connected to Directus ${result.data.directus.version}`);
+      logger.info("🔗 Testing Directus connection...");
+      const result = await this.request("GET", "/api/server/info");
+      logger.success(
+        `✅ Connected to Directus ${result.data.directus.version}`
+      );
       return true;
     } catch (error) {
       logger.error(`❌ Connection failed: ${error.message}`);

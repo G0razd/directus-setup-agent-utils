@@ -1,27 +1,33 @@
 {
-  "name": "@abakus/directus-setup",
-  "version": "1.0.0",
-  "description": "Directus collection setup and data population scripts",
-  "type": "module",
-  "scripts": {
-    "setup": "node src/main.js",
-    "setup:collections": "node src/create-collections.js",
-    "setup:data": "node src/populate-data.js",
-    "verify": "node src/verify-setup.js",
-    "backup": "node src/backup-collections.js",
-    "clean": "node src/clean-collections.js",
-    "examples": "node src/examples.js",
-    "test": "node tests/run-all.js",
-    "test:logger": "node tests/logger.test.js",
-    "test:auth": "node tests/auth.test.js",
-    "test:client": "node tests/client.test.js",
-    "test:integration": "node tests/integration.test.js"
-  },
-  "dependencies": {
-    "@directus/sdk": "^18.0.0",
-    "dotenv": "^16.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0"
-  }
+	"name": "@abakus/directus-setup",
+	"version": "2.0.0",
+	"description": "Directus collection setup and data population scripts with CLI",
+	"type": "module",
+	"bin": {
+		"directus-setup": "./src/cli.js"
+	},
+	"scripts": {
+		"setup": "node src/cli.js setup",
+		"setup:collections": "node src/cli.js collections",
+		"setup:data": "node src/cli.js data",
+		"verify": "node src/cli.js verify",
+		"backup": "node src/cli.js backup",
+		"clean": "node src/cli.js clean",
+		"generate-types": "node src/cli.js generate-types",
+		"examples": "node src/examples.js",
+		"test": "node tests/run-all.js",
+		"test:logger": "node tests/logger.test.js",
+		"test:auth": "node tests/auth.test.js",
+		"test:client": "node tests/client.test.js",
+		"test:integration": "node tests/integration.test.js"
+	},
+	"dependencies": {
+		"@abakus/directus-nextjs": "workspace:*",
+		"@directus/sdk": "^18.0.0",
+		"commander": "^12.0.0",
+		"dotenv": "^16.0.0"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.0"
+	}
 }

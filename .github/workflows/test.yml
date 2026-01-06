@@ -2,64 +2,64 @@ name: Test Suite
 
 on:
   push:
-    branches: [ master, main, develop ]
+    branches: [master, main, develop]
   pull_request:
-    branches: [ master, main, develop ]
+    branches: [master, main, develop]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-    
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-    
-    - name: Install dependencies
-      run: pnpm install
-    
-    - name: Run tests
-      run: pnpm test
-    
-    - name: Check test results
-      if: failure()
-      run: echo "❌ Tests failed! See output above for details."
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Check test results
+        if: failure()
+        run: echo "❌ Tests failed! See output above for details."
 
   lint:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20.x
-    
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-    
-    - name: Install dependencies
-      run: pnpm install
-    
-    - name: Check file structure
-      run: |
-        test -d src/lib && echo "✓ src/lib exists"
-        test -d src/config && echo "✓ src/config exists"
-        test -f src/config/collections.json && echo "✓ collections.json exists"
-        test -d tests && echo "✓ tests directory exists"
-        echo "✓ All critical files present"
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check file structure
+        run: |
+          test -d src/lib && echo "✓ src/lib exists"
+          test -d src/config && echo "✓ src/config exists"
+          test -f src/config/collections.json && echo "✓ collections.json exists"
+          test -d tests && echo "✓ tests directory exists"
+          echo "✓ All critical files present"

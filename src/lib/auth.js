@@ -3,7 +3,7 @@
  * Generates JWT tokens dynamically from access token
  */
 
-import { logger } from './logger.js';
+import { logger } from "./logger.js";
 
 export class DirectusAuth {
   constructor(directusUrl, accessToken) {
@@ -22,7 +22,7 @@ export class DirectusAuth {
       return this.jwtToken;
     }
 
-    logger.debug('🔄 Generating new JWT token from access token...');
+    logger.debug("🔄 Generating new JWT token from access token...");
     return await this.refreshToken();
   }
 
@@ -32,8 +32,8 @@ export class DirectusAuth {
   async refreshToken() {
     try {
       const response = await fetch(`${this.directusUrl}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_token: this.accessToken,
         }),
@@ -49,11 +49,11 @@ export class DirectusAuth {
 
       const data = await response.json();
       this.jwtToken = data.data.access_token;
-      
+
       // Token typically expires in 15 minutes, refresh after 10 minutes
       this.tokenExpiry = Date.now() + 10 * 60 * 1000;
 
-      logger.success('✅ JWT token generated successfully');
+      logger.success("✅ JWT token generated successfully");
       return this.jwtToken;
     } catch (error) {
       logger.error(`Authentication error: ${error.message}`);
@@ -68,7 +68,7 @@ export class DirectusAuth {
     const token = await this.getToken();
     return {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     };
   }
 }

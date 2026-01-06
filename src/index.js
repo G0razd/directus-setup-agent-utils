@@ -3,9 +3,9 @@
  * Programmatic API for setting up Directus collections and data
  */
 
-import { DirectusClient } from './lib/client.js';
-import { DirectusAuth } from './lib/auth.js';
-import { logger } from './lib/logger.js';
+import { DirectusClient } from "./lib/client.js";
+import { DirectusAuth } from "./lib/auth.js";
+import { logger } from "./lib/logger.js";
 
 /**
  * Setup Directus collections and data
@@ -22,7 +22,7 @@ export async function setupDirectus(options) {
   // Test connection
   const connected = await client.testConnection();
   if (!connected) {
-    throw new Error('Cannot connect to Directus');
+    throw new Error("Cannot connect to Directus");
   }
 
   return {

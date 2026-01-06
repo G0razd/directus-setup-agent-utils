@@ -3,8 +3,8 @@
  * Deletes all items from collections (not the collections themselves)
  */
 
-import { DirectusClient } from './lib/client.js';
-import { logger } from './lib/logger.js';
+import { DirectusClient } from "./lib/client.js";
+import { logger } from "./lib/logger.js";
 
 async function cleanCollection(client, collectionName) {
   logger.info(`🧹 Cleaning ${collectionName}...`);
@@ -35,22 +35,22 @@ async function cleanCollection(client, collectionName) {
 }
 
 async function main() {
-  const directusUrl = process.env.DIRECTUS_URL || 'http://localhost:8055';
+  const directusUrl = process.env.DIRECTUS_URL || "http://localhost:8055";
   const accessToken = process.env.DIRECTUS_SETUP_TOKEN;
 
   if (!accessToken) {
-    logger.error('DIRECTUS_SETUP_TOKEN not set in environment');
+    logger.error("DIRECTUS_SETUP_TOKEN not set in environment");
     process.exit(1);
   }
 
-  logger.section('Cleaning Collections');
+  logger.section("Cleaning Collections");
 
   // Confirm action
-  logger.warn('⚠️  This will DELETE ALL DATA from collections!');
-  logger.info('To proceed, set CONFIRM_CLEANUP=true environment variable');
+  logger.warn("⚠️  This will DELETE ALL DATA from collections!");
+  logger.info("To proceed, set CONFIRM_CLEANUP=true environment variable");
 
-  if (process.env.CONFIRM_CLEANUP !== 'true') {
-    logger.warn('Cleanup cancelled. Set CONFIRM_CLEANUP=true to proceed.');
+  if (process.env.CONFIRM_CLEANUP !== "true") {
+    logger.warn("Cleanup cancelled. Set CONFIRM_CLEANUP=true to proceed.");
     process.exit(0);
   }
 
@@ -67,7 +67,7 @@ async function main() {
     const results = [];
 
     // Clean in reverse order to respect foreign keys
-    const order = ['problems', 'lessons', 'courses', 'ai_prompts'];
+    const order = ["problems", "lessons", "courses", "ai_prompts"];
 
     for (const collectionName of order) {
       if (collections.some((c) => c.collection === collectionName)) {
@@ -81,8 +81,8 @@ async function main() {
 
     logger.table(results);
 
-    logger.section('Cleanup Complete');
-    logger.success('✅ All collections cleaned!');
+    logger.section("Cleanup Complete");
+    logger.success("✅ All collections cleaned!");
   } catch (error) {
     logger.error(`Cleanup failed: ${error.message}`);
     process.exit(1);
